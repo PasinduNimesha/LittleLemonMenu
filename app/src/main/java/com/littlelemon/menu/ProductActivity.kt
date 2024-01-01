@@ -14,7 +14,7 @@ class ProductActivity : ComponentActivity() {
         var image = intent.getIntExtra("image", -1)
 
         val productItem =
-            ProductItem(title!!, price, category!!, image)//todo replace with the passed values from intent
+            ProductItem(title!!, price, category!!, image)
         setContent { ProductDetails(productItem) }
     }
 

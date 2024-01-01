@@ -45,7 +45,6 @@ fun ProductsGrid(products: Products, startProductActivity: (ProductItem) -> Unit
                         contentDescription = productItem.title,
                         contentScale = ContentScale.Crop,
                         modifier = Modifier.clickable {
-                            //TODO start ProductActivity and pass the productItem details
                             startProductActivity(productItem)
                         }
                     )

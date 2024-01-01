@@ -33,7 +33,6 @@ class   MainActivity : ComponentActivity() {
     }
 
     private fun startProductActivity(productItem: ProductItem) {
-        //TODO instantiate intent and pass extra parameter from product
         var intent = Intent(this, ProductActivity::class.java)
             .putExtra("title", productItem.title)
             .putExtra("price", productItem.price)
