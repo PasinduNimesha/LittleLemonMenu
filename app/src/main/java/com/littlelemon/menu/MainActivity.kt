@@ -1,5 +1,6 @@
 package com.littlelemon.menu
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -22,17 +23,23 @@ class   MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent { InitUI() }
+        setContent { InitUI(this::startProductActivity) }
     }
 
     @Composable
-    fun InitUI() {
+    fun InitUI(startProductActivity: (ProductItem) -> Unit) {
         val products by productsState.collectAsState()
-        ProductsGrid(products = products)
+        ProductsGrid(products = products, startProductActivity = startProductActivity)
     }
 
     private fun startProductActivity(productItem: ProductItem) {
         //TODO instantiate intent and pass extra parameter from product
+        var intent = Intent(this, ProductActivity::class.java)
+            .putExtra("title", productItem.title)
+            .putExtra("price", productItem.price)
+            .putExtra("category", productItem.category)
+            .putExtra("image", productItem.image)
+        startActivity(intent)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
