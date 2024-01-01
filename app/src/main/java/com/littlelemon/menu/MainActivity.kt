@@ -33,6 +33,7 @@ class   MainActivity : ComponentActivity() {
 
     private fun startProductActivity(productItem: ProductItem) {
         //TODO instantiate intent and pass extra parameter from product
+        startProductActivity(productItem)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
