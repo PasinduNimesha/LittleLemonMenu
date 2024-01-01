@@ -24,9 +24,6 @@ import androidx.core.content.ContextCompat.startActivity
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ProductsGrid(products: Products, startProductActivity: (ProductItem) -> Unit) {
-    var context = LocalContext.current
-    var intent = Intent(context, ProductActivity::class.java)
-
     LazyVerticalGrid(
         cells = GridCells.Fixed(count = 2),
         contentPadding = PaddingValues(16.dp),
